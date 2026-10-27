@@ -1,0 +1,1105 @@
+
+/* ==========================================
+   01. VARIÁVEIS GLOBAIS E TEMA CLARO
+========================================== */
+
+:root {
+    --bg: #f2f5fa;
+    --cd: #fff;
+    --tx: #0d1424;
+    --mu: #5b667a;
+    --bd: #dfe5ef;
+    --bl: #1a6bff;
+    --ok: #0a8f4e;
+    --rd: #e5384f;
+
+    box-sizing: border-box;
+
+    padding-top: env(safe-area-inset-top, 0px);
+    padding-bottom: env(safe-area-inset-bottom, 0px);
+}
+
+
+/* ==========================================
+   02. TEMA ESCURO AUTOMÁTICO
+========================================== */
+
+@media (prefers-color-scheme: dark) {
+
+    :root:not([data-theme="light"]) {
+        --bg: #0a0e17;
+        --cd: #141a27;
+        --tx: #eaf0fb;
+        --mu: #93a0b8;
+        --bd: #243049;
+        --ok: #2fd488;
+    }
+
+}
+
+
+/* Tema escuro ativado manualmente */
+
+:root[data-theme="dark"] {
+    --bg: #0a0e17;
+    --cd: #141a27;
+    --tx: #eaf0fb;
+    --mu: #93a0b8;
+    --bd: #243049;
+    --ok: #2fd488;
+}
+
+
+/* ==========================================
+   03. CONFIGURAÇÕES GERAIS
+========================================== */
+
+html {
+    scroll-padding-top: 150px;
+}
+
+* {
+    box-sizing: border-box;
+}
+
+body {
+    margin: 0;
+    background: var(--bg);
+    color: var(--tx);
+
+    font: 400 15px/1.5 "Plus Jakarta Sans",
+          system-ui, sans-serif;
+}
+
+/* Área segura superior para dispositivos móveis */
+
+body::before {
+    content: "";
+    position: fixed;
+    inset: 0 0 auto;
+
+    height: env(safe-area-inset-top, 0px);
+
+    background: #05070c;
+    z-index: 30;
+}
+
+
+/* ==========================================
+   04. FORMULÁRIOS E BOTÕES
+========================================== */
+
+button,
+input,
+select {
+    font: inherit;
+    color: inherit;
+}
+
+button {
+    cursor: pointer;
+}
+
+:focus-visible {
+    outline: 2px solid var(--bl);
+    outline-offset: 2px;
+}
+
+
+/* ==========================================
+   05. CONTAINER PRINCIPAL
+========================================== */
+
+.w {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 0 16px;
+}
+
+
+/* ==========================================
+   06. BARRA SUPERIOR DE BENEFÍCIOS
+========================================== */
+
+.top {
+    background: #0a3fb0;
+    color: #fff;
+
+    font-size: 13px;
+    text-align: center;
+
+    padding: 6px 8px;
+}
+
+.top span {
+    margin: 0 10px;
+    white-space: nowrap;
+}
+
+
+/* ==========================================
+   07. AVISO DE INAUGURAÇÃO
+========================================== */
+
+.pre {
+    background: #05070c;
+    color: #b8c4dc;
+
+    font-size: 13px;
+    text-align: center;
+
+    padding: 6px 8px;
+}
+
+.pre a {
+    color: #4d9bff;
+    font-weight: 600;
+    margin-left: 6px;
+}
+
+
+/* ==========================================
+   08. CABEÇALHO
+========================================== */
+
+header {
+    background: #05070c;
+    color: #fff;
+
+    position: sticky;
+    top: env(safe-area-inset-top, 0px);
+
+    z-index: 20;
+}
+
+.hd {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 16px;
+    padding: 12px 16px;
+}
+
+
+/* ==========================================
+   09. LOGO / IDENTIDADE DA LOJA
+========================================== */
+
+.brand {
+    display: flex;
+    flex-direction: column;
+
+    line-height: 1;
+    text-decoration: none;
+
+    color: #fff;
+}
+
+.brand b {
+    font-size: 30px;
+    font-weight: 800;
+    letter-spacing: 1px;
+
+    background: linear-gradient(#fff, #9aa6b8);
+
+    -webkit-background-clip: text;
+    background-clip: text;
+
+    color: transparent;
+}
+
+.brand span {
+    font-size: 11px;
+    font-weight: 600;
+
+    letter-spacing: 5px;
+    color: #4d9bff;
+}
+
+
+/* ==========================================
+   10. BARRA DE PESQUISA
+========================================== */
+
+.sb {
+    flex: 1;
+    min-width: 220px;
+    position: relative;
+}
+
+.sb input {
+    width: 100%;
+
+    padding: 11px 14px;
+
+    border: 0;
+    border-radius: 8px;
+
+    background: #fff;
+    color: #0d1424;
+}
+
+
+/* Sugestões de produtos */
+
+#sg {
+    position: absolute;
+
+    left: 0;
+    right: 0;
+    top: 100%;
+
+    display: none;
+    overflow: hidden;
+
+    background: var(--cd);
+    color: var(--tx);
+
+    border-radius: 0 0 8px 8px;
+
+    box-shadow: 0 12px 30px #0006;
+}
+
+#sg button {
+    display: block;
+    width: 100%;
+
+    text-align: left;
+
+    border: 0;
+    background: none;
+
+    padding: 10px 14px;
+}
+
+#sg button:hover {
+    background: var(--bg);
+}
+
+
+/* ==========================================
+   11. ÍCONES DO CABEÇALHO
+========================================== */
+
+.ic {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    background: none;
+    color: #fff;
+
+    border: 1px solid #2a3550;
+    border-radius: 8px;
+
+    padding: 9px 12px;
+}
+
+.ic b {
+    background: var(--bl);
+
+    border-radius: 20px;
+
+    padding: 0 7px;
+    font-size: 12px;
+}
+
+
+/* ==========================================
+   12. MENU DE NAVEGAÇÃO
+========================================== */
+
+nav {
+    border-top: 1px solid #18213a;
+}
+
+nav .w {
+    display: flex;
+    gap: 4px;
+
+    overflow-x: auto;
+}
+
+nav button {
+    background: none;
+    border: 0;
+
+    color: #b8c4dc;
+
+    padding: 10px 14px;
+
+    white-space: nowrap;
+
+    border-bottom: 3px solid transparent;
+}
+
+/* Categoria selecionada */
+
+nav button.on {
+    color: #fff;
+    border-color: var(--bl);
+}
+
+
+/* ==========================================
+   13. BANNER PRINCIPAL / HERO
+========================================== */
+
+.hero {
+    background: radial-gradient(
+        circle at 80% 40%,
+        #0d2a6b,
+        #05070c 65%
+    );
+
+    color: #fff;
+}
+
+.hero .w {
+    display: grid;
+
+    grid-template-columns: 1.1fr 0.9fr;
+
+    gap: 24px;
+    align-items: center;
+
+    padding-top: 36px;
+    padding-bottom: 36px;
+}
+
+.hero h1 {
+    font-size: clamp(28px, 4.4vw, 46px);
+    font-weight: 800;
+
+    line-height: 1.1;
+
+    margin: 0 0 14px;
+}
+
+.hero p {
+    color: #b8c4dc;
+
+    max-width: 46ch;
+
+    margin: 0 0 22px;
+}
+
+.hero img {
+    width: 100%;
+    max-width: 440px;
+
+    justify-self: center;
+
+    border-radius: 16px;
+}
+
+
+/* ==========================================
+   14. BOTÕES PRINCIPAIS
+========================================== */
+
+.btn {
+    display: inline-block;
+
+    background: var(--bl);
+    color: #fff;
+
+    border: 0;
+    border-radius: 8px;
+
+    padding: 12px 22px;
+
+    font-weight: 600;
+    text-decoration: none;
+
+    margin: 0 8px 8px 0;
+}
+
+/* Botão secundário */
+
+.btn.g {
+    background: none;
+    border: 1px solid #3a4a72;
+}
+
+
+/* ==========================================
+   15. BENEFÍCIOS DA LOJA
+========================================== */
+
+.bf {
+    display: grid;
+
+    grid-template-columns: repeat(4, 1fr);
+
+    gap: 12px;
+
+    margin: 18px auto;
+}
+
+.bf div {
+    background: var(--cd);
+
+    border: 1px solid var(--bd);
+    border-radius: 10px;
+
+    padding: 12px 14px;
+
+    font-size: 13px;
+    color: var(--mu);
+}
+
+.bf b {
+    display: block;
+
+    color: var(--tx);
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   16. TÍTULOS DAS SEÇÕES
+========================================== */
+
+h2 {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 14px;
+
+    font-size: 22px;
+
+    margin: 30px 0 14px;
+}
+
+
+/* ==========================================
+   17. CONTADOR DE OFERTAS
+========================================== */
+
+#tm {
+    background: var(--rd);
+    color: #fff;
+
+    font-size: 14px;
+
+    border-radius: 6px;
+    padding: 2px 10px;
+
+    font-variant-numeric: tabular-nums;
+}
+
+
+/* ==========================================
+   18. FILTROS DO CATÁLOGO
+========================================== */
+
+.tb {
+    display: flex;
+    align-items: center;
+    flex-wrap: wrap;
+
+    gap: 8px;
+
+    margin-bottom: 14px;
+}
+
+.tb select {
+    background: var(--cd);
+
+    border: 1px solid var(--bd);
+    border-radius: 8px;
+
+    padding: 8px 10px;
+
+    margin-left: auto;
+}
+
+
+/* Botões de categorias */
+
+.ch {
+    background: var(--cd);
+
+    border: 1px solid var(--bd);
+    border-radius: 20px;
+
+    padding: 6px 14px;
+}
+
+/* Categoria ativa */
+
+.ch.on {
+    background: var(--bl);
+    border-color: var(--bl);
+
+    color: #fff;
+}
+
+
+/* ==========================================
+   19. GRADE DE PRODUTOS
+========================================== */
+
+.gr {
+    display: grid;
+
+    grid-template-columns: repeat(
+        auto-fill,
+        minmax(220px, 1fr)
+    );
+
+    gap: 14px;
+}
+
+
+/* ==========================================
+   20. CARDS DOS PRODUTOS
+========================================== */
+
+.card {
+    display: flex;
+    flex-direction: column;
+
+    position: relative;
+
+    background: var(--cd);
+
+    border: 1px solid var(--bd);
+    border-radius: 10px;
+
+    overflow: hidden;
+}
+
+.card:hover {
+    border-color: var(--bl);
+}
+
+
+/* ==========================================
+   21. IMAGEM / ÍCONE DO PRODUTO
+========================================== */
+
+.ph {
+    display: grid;
+    place-items: center;
+
+    position: relative;
+
+    height: 170px;
+
+    font-size: 68px;
+}
+
+
+/* Selo promocional */
+
+.ph i {
+    position: absolute;
+
+    left: 10px;
+    top: 10px;
+
+    background: var(--rd);
+    color: #fff;
+
+    font-size: 12px;
+    font-weight: 600;
+    font-style: normal;
+    line-height: 1;
+
+    padding: 5px 8px;
+
+    border-radius: 5px;
+}
+
+
+/* ==========================================
+   22. BOTÃO DE FAVORITOS
+========================================== */
+
+.hb {
+    position: absolute;
+
+    right: 10px;
+    top: 10px;
+
+    z-index: 2;
+
+    width: 34px;
+    height: 34px;
+
+    border-radius: 50%;
+    border: 0;
+
+    background: #fffc;
+    color: #8a94a8;
+
+    font-size: 17px;
+}
+
+/* Produto favoritado */
+
+.hb.on {
+    color: var(--rd);
+}
+
+
+/* ==========================================
+   23. INFORMAÇÕES DOS PRODUTOS
+========================================== */
+
+.bd {
+    display: flex;
+    flex-direction: column;
+
+    flex: 1;
+
+    gap: 2px;
+
+    padding: 12px 14px 14px;
+}
+
+.bd small {
+    color: var(--mu);
+}
+
+.bd h3 {
+    font-size: 15px;
+    font-weight: 600;
+
+    min-height: 44px;
+
+    margin: 0;
+}
+
+
+/* Avaliações */
+
+.st {
+    color: #f5a623;
+    font-size: 13px;
+}
+
+.st em {
+    color: var(--mu);
+    font-style: normal;
+}
+
+
+/* Preços */
+
+.bd s {
+    color: var(--mu);
+    font-size: 13px;
+}
+
+.bd strong {
+    font-size: 22px;
+}
+
+
+/* Preço no PIX */
+
+.px {
+    color: var(--ok);
+
+    font-size: 13px;
+    font-weight: 600;
+}
+
+
+/* Informações adicionais */
+
+.in {
+    color: var(--mu);
+    font-size: 12px;
+}
+
+
+/* Estoque baixo */
+
+.lw {
+    color: var(--rd);
+
+    font-size: 12px;
+    font-weight: 600;
+}
+
+
+/* ==========================================
+   24. BOTÃO ADICIONAR AO CARRINHO
+========================================== */
+
+.add {
+    margin-top: auto;
+
+    background: var(--bl);
+    color: #fff;
+
+    border: 0;
+    border-radius: 8px;
+
+    padding: 10px;
+
+    font-weight: 600;
+}
+
+.bd .add {
+    margin-top: 10px;
+}
+
+/* Efeito ao clicar */
+
+.add:active {
+    transform: scale(0.97);
+}
+
+
+/* ==========================================
+   25. RODAPÉ
+========================================== */
+
+footer {
+    background: #05070c;
+    color: #93a0b8;
+
+    margin-top: 40px;
+    padding: 28px 0;
+
+    font-size: 13px;
+}
+
+footer b {
+    color: #fff;
+}
+
+
+/* ==========================================
+   26. FUNDO ESCURECIDO DO CARRINHO
+========================================== */
+
+#ov {
+    position: fixed;
+    inset: 0;
+
+    display: none;
+
+    background: #0008;
+
+    z-index: 40;
+}
+
+
+/* ==========================================
+   27. PAINEL LATERAL DO CARRINHO
+========================================== */
+
+#dr {
+    position: fixed;
+
+    top: 0;
+    right: 0;
+    bottom: 0;
+
+    width: min(420px, 100%);
+
+    display: flex;
+    flex-direction: column;
+
+    background: var(--cd);
+
+    z-index: 50;
+
+    transform: translateX(100%);
+    transition: transform 0.25s;
+
+    padding-top: env(safe-area-inset-top, 0px);
+}
+
+/* Carrinho aberto */
+
+#dr.on {
+    transform: none;
+}
+
+
+/* ==========================================
+   28. CABEÇALHO DO CARRINHO
+========================================== */
+
+.dh {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+
+    padding: 14px 16px;
+
+    border-bottom: 1px solid var(--bd);
+}
+
+.dh button {
+    background: none;
+    border: 0;
+
+    font-size: 22px;
+}
+
+
+/* ==========================================
+   29. LISTA DE ITENS DO CARRINHO
+========================================== */
+
+#ci {
+    flex: 1;
+
+    overflow: auto;
+
+    padding: 8px 16px;
+}
+
+.it {
+    display: grid;
+
+    grid-template-columns: 48px 1fr auto;
+
+    gap: 10px;
+    align-items: center;
+
+    padding: 10px 0;
+
+    border-bottom: 1px solid var(--bd);
+
+    font-size: 14px;
+}
+
+.it span {
+    font-size: 30px;
+}
+
+
+/* ==========================================
+   30. CONTROLE DE QUANTIDADE
+========================================== */
+
+.qt {
+    display: flex;
+    align-items: center;
+
+    gap: 6px;
+
+    margin-top: 4px;
+}
+
+.qt button {
+    width: 26px;
+    height: 26px;
+
+    border-radius: 6px;
+    border: 1px solid var(--bd);
+
+    background: var(--bg);
+}
+
+
+/* ==========================================
+   31. RESUMO DO CARRINHO
+========================================== */
+
+.df {
+    background: var(--bg);
+
+    padding: 14px 16px;
+
+    border-top: 1px solid var(--bd);
+
+    font-size: 14px;
+}
+
+
+/* ==========================================
+   32. BARRA DE PROGRESSO DO FRETE GRÁTIS
+========================================== */
+
+.pb {
+    height: 6px;
+
+    background: var(--bd);
+
+    border-radius: 6px;
+    overflow: hidden;
+
+    margin: 4px 0 10px;
+}
+
+.pb div {
+    height: 100%;
+
+    background: var(--ok);
+
+    transition: width 0.3s;
+}
+
+
+/* ==========================================
+   33. CAMPO DE CUPOM
+========================================== */
+
+.rw {
+    display: flex;
+    gap: 6px;
+
+    margin: 6px 0;
+}
+
+.rw input {
+    flex: 1;
+    min-width: 0;
+
+    padding: 8px;
+
+    border: 1px solid var(--bd);
+    border-radius: 6px;
+
+    background: var(--cd);
+}
+
+.rw button {
+    border: 1px solid var(--bl);
+    border-radius: 6px;
+
+    color: var(--bl);
+    background: none;
+
+    padding: 0 12px;
+}
+
+
+/* ==========================================
+   34. VALORES E TOTAL DO CARRINHO
+========================================== */
+
+.l {
+    display: flex;
+    justify-content: space-between;
+}
+
+.tt {
+    font-size: 18px;
+    font-weight: 800;
+
+    margin: 8px 0;
+}
+
+
+/* ==========================================
+   35. BOTÃO FINALIZAR COMPRA
+========================================== */
+
+#ck {
+    display: block;
+
+    text-align: center;
+    text-decoration: none;
+
+    background: #1fa855;
+    color: #fff;
+
+    border-radius: 8px;
+
+    padding: 12px;
+
+    font-weight: 600;
+}
+
+/* Botão desativado */
+
+#ck.off {
+    pointer-events: none;
+    opacity: 0.4;
+}
+
+
+/* ==========================================
+   36. NOTIFICAÇÕES / MENSAGENS
+========================================== */
+
+#ts {
+    position: fixed;
+
+    left: 50%;
+    bottom: 24px;
+
+    transform: translateX(-50%);
+
+    background: #0d1424;
+    color: #fff;
+
+    border-radius: 8px;
+
+    padding: 10px 18px;
+
+    z-index: 60;
+
+    opacity: 0;
+
+    transition: opacity 0.2s;
+
+    pointer-events: none;
+}
+
+/* Notificação visível */
+
+#ts.on {
+    opacity: 1;
+}
+
+
+/* ==========================================
+   37. RESPONSIVIDADE PARA CELULARES
+========================================== */
+
+@media (max-width: 760px) {
+
+    /* Banner em uma coluna */
+
+    .hero .w {
+        grid-template-columns: 1fr;
+    }
+
+    /* Imagem acima do texto */
+
+    .hero img {
+        max-width: 280px;
+        order: -1;
+    }
+
+    /* Benefícios em duas colunas */
+
+    .bf {
+        grid-template-columns: 1fr 1fr;
+    }
+
+    /* Oculta o terceiro benefício superior */
+
+    .top span:nth-child(3) {
+        display: none;
+    }
+
+}
+
+
+/* ==========================================
+   38. ACESSIBILIDADE / REDUÇÃO DE MOVIMENTO
+========================================== */
+
+@media (prefers-reduced-motion: reduce) {
+
+    * {
+        transition: none !important;
+    }
+
+}

@@ -1,0 +1,295 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+    <meta charset="UTF-8">
+
+    <meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+
+    <title>LMGV Global Tech | Eletrônicos, perfumes e importados</title>
+
+    <!-- Fonte do Google Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+
+    <link
+        href="https://fonts.googleapis.com/css2?family=Plus+Jakarta+Sans:wght@400;600;800&display=swap"
+        rel="stylesheet"
+    >
+
+    <!-- Arquivo CSS -->
+    <link rel="stylesheet" href="style.css">
+</head>
+
+<body>
+
+    <!-- ========================================
+         BARRA DE BENEFÍCIOS
+    ========================================= -->
+    <div class="top">
+        <span>Frete grátis acima de R$ 299</span>
+        <span>5% de desconto no PIX</span>
+        <span>Até 10x sem juros</span>
+    </div>
+
+    <!-- ========================================
+         AVISO DE INAUGURAÇÃO
+    ========================================= -->
+    <div class="pre">
+        Inauguração em breve.
+
+        <a
+            href="https://wa.me/5511975585731?text=Ol%C3%A1!%20Quero%20ser%20avisado%20da%20inaugura%C3%A7%C3%A3o%20da%20LMGV%20Global%20Tech."
+            target="_blank"
+            rel="noopener noreferrer"
+        >
+            Quero ser avisado da abertura
+        </a>
+    </div>
+
+    <!-- ========================================
+         CABEÇALHO DO SITE
+    ========================================= -->
+    <header>
+
+        <div class="w hd">
+
+            <!-- Logo / Nome da loja -->
+            <a class="brand" href="#">
+                <b>LMGV</b>
+                <span>GLOBAL TECH</span>
+            </a>
+
+            <!-- Campo de pesquisa -->
+            <div class="sb">
+
+                <input
+                    id="q"
+                    type="search"
+                    placeholder="Buscar eletrônicos, perfumes e importados"
+                    autocomplete="off"
+                    aria-label="Buscar produtos"
+                >
+
+                <!-- Sugestões de pesquisa -->
+                <div id="sg"></div>
+
+            </div>
+
+            <!-- Botão de favoritos -->
+            <button
+                class="ic"
+                id="wb"
+                type="button"
+                title="Favoritos"
+                aria-label="Abrir favoritos"
+            >
+                ♥
+                <b id="wc">0</b>
+            </button>
+
+            <!-- Botão do carrinho -->
+            <button
+                class="ic"
+                id="cb"
+                type="button"
+                title="Carrinho"
+                aria-label="Abrir carrinho"
+            >
+                Carrinho
+                <b id="cc">0</b>
+            </button>
+
+        </div>
+
+        <!-- Menu de navegação -->
+        <nav aria-label="Categorias de produtos">
+            <div class="w" id="nv"></div>
+        </nav>
+
+    </header>
+
+    <!-- ========================================
+         SEÇÃO PRINCIPAL / BANNER
+    ========================================= -->
+    <section class="hero">
+
+        <div class="w">
+
+            <!-- Texto de apresentação -->
+            <div>
+
+                <h1>
+                    Tecnologia e perfumes importados,
+                    direto para a sua porta.
+                </h1>
+
+                <p>
+                    Eletrônicos, fragrâncias e itens importados
+                    selecionados, com envio para todo o Brasil
+                    e pagamento facilitado.
+                </p>
+
+                <!-- Botão para ofertas -->
+                <a class="btn" href="#ofertas">
+                    Ver ofertas do dia
+                </a>
+
+                <!-- Botão para perfumes -->
+                <button
+                    class="btn g"
+                    type="button"
+                    data-go="Perfumes"
+                >
+                    Escolher perfumes
+                </button>
+
+            </div>
+
+            <!-- Imagem da loja -->
+            <img
+                src="c:\Users\Leonardo llmo\Downloads\Logo.jpeg"
+                alt="Logo LMGV Global Tech: eletrônicos, perfumes e importados"
+            >
+
+        </div>
+
+    </section>
+
+    <!-- ========================================
+         CONTEÚDO PRINCIPAL
+    ========================================= -->
+    <main class="w">
+
+        <!-- BENEFÍCIOS DA LOJA -->
+        <section class="bf" aria-label="Benefícios da loja">
+
+            <div>
+                <b>Frete grátis</b>
+                em compras acima de R$ 299
+            </div>
+
+            <div>
+                <b>5% off no PIX</b>
+                aprovação na hora
+            </div>
+
+            <div>
+                <b>Até 10x sem juros</b>
+                no cartão de crédito
+            </div>
+
+            <div>
+                <b>Nota fiscal e garantia</b>
+                em todos os produtos
+            </div>
+
+        </section>
+
+        <!-- ====================================
+             OFERTAS DO DIA
+        ===================================== -->
+        <section aria-labelledby="ofertas">
+
+            <h2 id="ofertas">
+                Ofertas do dia
+                <span id="tm">--:--:--</span>
+            </h2>
+
+            <!-- Produtos em oferta -->
+            <div class="gr" id="dl"></div>
+
+        </section>
+
+        <!-- ====================================
+             CATÁLOGO DE PRODUTOS
+        ===================================== -->
+        <section aria-labelledby="catalogo">
+
+            <h2 id="catalogo">
+                Todos os produtos
+            </h2>
+
+            <!-- Filtros de categorias -->
+            <div class="tb" id="fl"></div>
+
+            <!-- Lista de produtos -->
+            <div class="gr" id="gr"></div>
+
+            <!-- Mensagem de busca vazia -->
+            <p
+                id="em"
+                style="display: none; color: var(--mu);"
+            >
+                Nenhum produto encontrado.
+                Limpe a busca ou escolha outra categoria.
+            </p>
+
+        </section>
+
+    </main>
+
+    <!-- ========================================
+         RODAPÉ DO SITE
+    ========================================= -->
+    <footer>
+
+        <div class="w">
+
+            <b>LMGV Global Tech</b>
+
+            <p>
+                Eletrônicos, perfumes e importados.
+                Produtos, preços e estoque desta página
+                são exemplos para demonstração.
+            </p>
+
+        </div>
+
+    </footer>
+
+    <!-- ========================================
+         FUNDO DO CARRINHO
+    ========================================= -->
+    <div id="ov"></div>
+
+    <!-- ========================================
+         CARRINHO DE COMPRAS
+    ========================================= -->
+    <aside id="dr" aria-label="Carrinho">
+
+        <!-- Cabeçalho do carrinho -->
+        <div class="dh">
+
+            <b>Seu carrinho</b>
+
+            <button
+                id="x"
+                type="button"
+                aria-label="Fechar carrinho"
+            >
+                ×
+            </button>
+
+        </div>
+
+        <!-- Itens adicionados -->
+        <div id="ci"></div>
+
+        <!-- Resumo / Finalização -->
+        <div class="df" id="df"></div>
+
+    </aside>
+
+    <!-- ========================================
+         NOTIFICAÇÕES DO SITE
+    ========================================= -->
+    <div id="ts" role="status"></div>
+
+    <!-- ========================================
+         ARQUIVO JAVASCRIPT
+    ========================================= -->
+    <script src="script.js"></script>
+
+</body>
+
+</html>
